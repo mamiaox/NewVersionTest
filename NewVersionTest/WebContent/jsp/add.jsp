@@ -30,7 +30,7 @@
             <td>出生日期：<input type="date" title="出生日期" id="birth" name="birth"></td>
         </tr>
         <tr>
-            <td>婚姻状况：<select name="marrage" id="marrage" title="婚姻状况">
+            <td>婚姻状况：<select name="marrage" id="marrage" title="婚姻状况" onchange="inputClose()" >
                 <option value="">请选择婚姻状况</option>
                 <option value="unmarried">未婚</option>
                 <option value="firstmarriage">初婚</option>
@@ -52,6 +52,20 @@
             </td>
         </tr>
     </table>
+    <script type="text/javascript" language="JavaScript">
+        function inputClose(){
+            while(true) {
+                if (marrage.value == "unmarried" || marrage.value == "unexplainedmaritalstatus" ) {
+                    document.getElementById("matename").disabled = true;
+                    break;
+                }
+                else{
+                    document.getElementById("matename").disabled = false;
+                    turnoff();
+                }
+            }
+        }
+    </script>
 </form>
 </body>
 </html>
